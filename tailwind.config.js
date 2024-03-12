@@ -5,6 +5,11 @@ export default {
     extend: {
       maxWidth: {
         container: "1240px",
+        mx: "auto",
+      },
+      fontFamily: {
+        Primary: ["Inter", "sans-serif"],
+        Secondary: ["Barlow", "sans-serif"],
       },
     },
   },
