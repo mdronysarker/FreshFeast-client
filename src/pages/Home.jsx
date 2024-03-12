@@ -1,3 +1,3 @@
 export default function Home() {
-  return <div className="font-Secondary">Home</div>;
+  return <div className="font-Secondary ">Home</div>;
 }

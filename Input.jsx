@@ -1,14 +1,15 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 
-const Input = ({ label, type, name, placeholder, id }) => {
+const Input = ({ label, type, name, placeholder, id, onChange, value }) => {
   return (
     <>
       <div className="space-y-2 text-sm">
-        <label htmlFor={id} className="block font-Primary">
+        <label htmlFor="username" className="block ">
           {label}
         </label>
         <input
+          onChange={onChange}
+          value={value}
           type={type}
           name={name}
           id={id}
