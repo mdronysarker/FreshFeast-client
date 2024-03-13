@@ -11,6 +11,9 @@ export default {
         Primary: ["Inter", "sans-serif"],
         Secondary: ["Barlow", "sans-serif"],
       },
+      colors: {
+        "error-color": "red-500",
+      },
     },
   },
   plugins: [],
