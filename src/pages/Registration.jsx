@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
-import Input from "../../Input";
+import Input from "../components/sharecomponents/Input";
 import { signUpValidations } from "../validation/Validation";
-import InputError from "../../InputError";
+import InputError from "../components/sharecomponents/InputError";
 
 export default function Registration() {
   const initialValues = {
