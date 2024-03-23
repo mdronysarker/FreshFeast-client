@@ -1,6 +1,23 @@
 import React from "react";
+import Input from "../components/sharecomponents/Input";
+import InputError from "../components/sharecomponents/InputError";
+import { useFormik } from "formik";
+import { signInValidation } from "../validation/Validation";
+import { Link } from "react-router-dom";
 
 export default function Login() {
+  const initialValues = {
+    email: "",
+    password: "",
+  };
+  const formik = useFormik({
+    initialValues: initialValues,
+    validationSchema: signInValidation,
+    onSubmit: () => {
+      console.log("submit hoice");
+    },
+  });
+
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="max-w-[800px] mx-auto p-6 bg-white shadow-md sm:px-8 sm:py-10 lg:px-12 lg:py-16">
@@ -8,18 +25,28 @@ export default function Login() {
           <div>
             {/* Left side form */}
             <h2 className="text-2xl font-bold mb-6">Login</h2>
-            <form>
+            <form onSubmit={formik.handleSubmit}>
               <div className="flex flex-col space-y-4 mb-4">
-                <input
-                  className="h-10 rounded-md border px-3 py-2 text-sm focus:outline-none"
-                  placeholder="Username"
-                  type="text"
+                <Input
+                  label={"Email"}
+                  name={"email"}
+                  onChange={formik.handleChange}
+                  value={formik.values.phone}
+                  type={"email"}
+                  placeholder={"Email"}
+                  id={"email"}
                 />
-                <input
-                  className="h-10 rounded-md border px-3 py-2 text-sm focus:outline-none"
-                  placeholder="Password"
-                  type="password"
+                <InputError error={formik.errors.email} />
+                <Input
+                  label={"password"}
+                  name={"password"}
+                  onChange={formik.handleChange}
+                  value={formik.values.phone}
+                  type={"password"}
+                  placeholder={"password"}
+                  id={"password"}
                 />
+                <InputError error={formik.errors.password} />
               </div>
               <div className="flex items-center space-x-2 mb-6">
                 <button
@@ -51,9 +78,12 @@ export default function Login() {
               If you don't already have an account click the button below to
               create your account.
             </p>
-            <button className="inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 w-full mb-2 bg-black text-white">
+            <Link
+              to={"/registration"}
+              className="inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 w-full mb-2 bg-black text-white"
+            >
               CREATE ACCOUNT
-            </button>
+            </Link>
             <p className="text-center my-4">OR</p>
             <button className="inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 w-full mb-2 bg-blue-600 text-white">
               <svg
